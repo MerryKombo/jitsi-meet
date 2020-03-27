@@ -1,0 +1,13 @@
+language: none
+
+sudo: required
+
+runtime:
+  nodePool: shippable_shared_aarch64
+ 
+build:
+ ci:
+  - apt update && apt upgrade && apt install git npm
+  - git clone https://github.com/jitsi/jitsi-meet.git && cd jitsi-meet
+  - npm install -g npm@latest && command -v nvm && nvm ls && nvm ls-remote && nvm install 13.12.0 && npm update
+  - npm install && make
