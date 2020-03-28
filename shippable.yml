@@ -13,8 +13,10 @@ build:
  ci:
   - apt update && apt upgrade -y # && apt install git npm
   - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-  - apt install -y --no-install-recommends build-essential nodejs pbuilder devscripts dpkg-dev build-essential fakeroot debhelper && npm install -g npm@latest
+  - apt install -y --no-install-recommends build-essential nodejs pbuilder devscripts dpkg-dev build-essential fakeroot && npm install -g npm@latest
   - git clone https://github.com/jitsi/jitsi-meet.git && cd jitsi-meet
   #- npm install -g npm@latest && command -v nvm && nvm ls && nvm ls-remote && nvm install 13.12.0 && npm update
   - npm install && make && npm update caniuse-lite browserslist
+  - echo "deb http://deb.debian.org/debian stretch-backports main" >>/etc/apt/sources.list && apt update
+  - apt-get -t stretch-backports install -y debhelper
   - dpkg-buildpackage -A -rfakeroot -us -uc
