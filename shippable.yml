@@ -15,5 +15,5 @@ build:
   - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
   - apt install -y build-essential nodejs && npm install -g npm@latest
   - git clone https://github.com/jitsi/jitsi-meet.git && cd jitsi-meet
-  - npm install -g npm@latest && command -v nvm && nvm ls && nvm ls-remote && nvm install 13.12.0 && npm update
+  #- npm install -g npm@latest && command -v nvm && nvm ls && nvm ls-remote && nvm install 13.12.0 && npm update
   - npm install && make
