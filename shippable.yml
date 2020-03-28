@@ -6,6 +6,10 @@ runtime:
   nodePool: shippable_shared_aarch64
  
 build:
+ pre_ci_boot:
+    image_name: debian
+    image_tag: stretch-backports
+    pull: true
  ci:
   - apt update && apt upgrade # && apt install git npm
   - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
